@@ -208,6 +208,7 @@ export default {
     components: { typeTags },
     data: () => ({
         auth_key: localStorage.getItem('auth_token') ?? '',
+        auth_reload_to: null,
         polls: {},
 
         global_error: null,
@@ -252,6 +253,13 @@ export default {
 
     }),
     watch: {
+        'auth_key'() {
+            clearTimeout(this.auth_reload_to)
+            this.auth_reload_to(() => {
+                localStorage.setitem('auth_token', this.auth_key)
+                this.load_polls()
+            }, 1000)
+        },
         'create': {
             handler() {
                 this.create_error = null
