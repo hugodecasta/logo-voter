@@ -1,0 +1,146 @@
+{
+    "name": "api",
+    "vue_src_directory": "./src",
+    "is_fake": false,
+    "apis": {
+        "polls": {
+            "host": "https://mjs.hugocastaneda.fr/api/poll",
+            "apis": {
+                "admin": {
+                    "host": "",
+                    "apis": {
+                        "voters": {
+                            "host": "",
+                            "endpoints": {
+                                "add": {
+                                    "url": ":id/voter",
+                                    "method": "POST",
+                                    "data_needed": true,
+                                    "credentials": {
+                                        "header_type": "custom",
+                                        "token_type": "local",
+                                        "options": {
+                                            "header": "Authorization",
+                                            "cred_key": "auth_token"
+                                        }
+                                    }
+                                },
+                                "delete": {
+                                    "url": ":id/voter",
+                                    "method": "DELETE",
+                                    "data_needed": true,
+                                    "credentials": {
+                                        "header_type": "custom",
+                                        "token_type": "local",
+                                        "options": {
+                                            "header": "Authorization",
+                                            "cred_key": "auth_token"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "endpoints": {
+                        "create": {
+                            "url": "create",
+                            "method": "POST",
+                            "data_needed": true,
+                            "credentials": {
+                                "header_type": "custom",
+                                "token_type": "local",
+                                "options": {
+                                    "header": "Authorization",
+                                    "cred_key": "auth_token"
+                                }
+                            }
+                        },
+                        "list": {
+                            "url": "list",
+                            "method": "GET",
+                            "credentials": {
+                                "header_type": "custom",
+                                "token_type": "local",
+                                "options": {
+                                    "header": "Authorization",
+                                    "cred_key": "auth_token"
+                                }
+                            }
+                        },
+                        "start": {
+                            "url": ":id/start",
+                            "method": "PUT",
+                            "credentials": {
+                                "header_type": "custom",
+                                "token_type": "local",
+                                "options": {
+                                    "header": "Authorization",
+                                    "cred_key": "auth_token"
+                                }
+                            }
+                        },
+                        "close": {
+                            "url": ":id/close",
+                            "method": "PUT",
+                            "credentials": {
+                                "header_type": "custom",
+                                "token_type": "local",
+                                "options": {
+                                    "header": "Authorization",
+                                    "cred_key": "auth_token"
+                                }
+                            }
+                        },
+                        "delete": {
+                            "url": ":id",
+                            "method": "DELETE",
+                            "credentials": {
+                                "header_type": "custom",
+                                "token_type": "local",
+                                "options": {
+                                    "header": "Authorization",
+                                    "cred_key": "auth_token"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "endpoints": {
+                "is_voter": {
+                    "url": ":id/voter",
+                    "method": "GET",
+                    "credentials": {
+                        "header_type": "custom",
+                        "token_type": "argument",
+                        "options": {
+                            "header": "Authorization",
+                            "argument": "token"
+                        }
+                    }
+                },
+                "vote": {
+                    "url": ":id/vote",
+                    "method": "POST",
+                    "data_needed": true,
+                    "credentials": {
+                        "header_type": "custom",
+                        "token_type": "argument",
+                        "options": {
+                            "header": "Authorization",
+                            "argument": "token"
+                        }
+                    }
+                },
+                "get": {
+                    "url": ":id",
+                    "method": "GET"
+                },
+                "results": {
+                    "url": ":id/results",
+                    "method": "GET"
+                }
+            }
+        }
+    }
+}
