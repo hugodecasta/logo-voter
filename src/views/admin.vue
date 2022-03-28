@@ -326,6 +326,7 @@ export default {
             await this.load_polls()
         },
         async close(poll) {
+            if (!confirm('close poll (is definitive) ?')) return
             await this.$api.polls.admin.close(poll.id)
             await this.load_polls()
         },
