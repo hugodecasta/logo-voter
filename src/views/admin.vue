@@ -256,7 +256,7 @@ export default {
         'auth_key'() {
             clearTimeout(this.auth_reload_to)
             this.auth_reload_to = setTimeout(() => {
-                localStorage.setitem('auth_token', this.auth_key)
+                localStorage.setItem('auth_token', this.auth_key)
                 this.load_polls()
             }, 1000)
         },
