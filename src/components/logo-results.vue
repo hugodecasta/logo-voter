@@ -17,37 +17,41 @@
                     large
                 >{{grade}}</v-card-title>
             </v-col>
-            <v-col
-                v-for="choice in grade_choices[grade]"
-                :key="choice"
-                align="center"
-                justify="center"
-            >
-                <v-img
-                    :src="choice"
-                    contain
-                    :width="choice_sizes[choice]+'px'"
-                    :height="choice_sizes[choice]+'px'"
-                />
-                <v-card-subtitle v-if="details && grade_choices[grade].length > 1">
-                    {{details[choice][grade]}}
-                </v-card-subtitle>
-                <v-btn
-                    icon
-                    v-if="reloadable"
-                    @click="$emit('reload',choice)"
-                >
-                    <v-icon>mdi-restore</v-icon>
-                </v-btn>
-                <v-btn
-                    fab
-                    small
-                    v-if="validable"
-                    color="primary"
-                    @click="$emit('validate',choice)"
-                >
-                    <v-icon>mdi-check</v-icon>
-                </v-btn>
+            <v-col>
+                <v-row>
+                    <v-col
+                        v-for="choice in grade_choices[grade]"
+                        :key="choice"
+                        align="center"
+                        justify="center"
+                    >
+                        <v-img
+                            :src="choice"
+                            contain
+                            :width="choice_sizes[choice]+'px'"
+                            :height="choice_sizes[choice]+'px'"
+                        />
+                        <v-card-subtitle v-if="details && grade_choices[grade].length > 1">
+                            {{details[choice][grade]}}
+                        </v-card-subtitle>
+                        <v-btn
+                            icon
+                            v-if="reloadable"
+                            @click="$emit('reload',choice)"
+                        >
+                            <v-icon>mdi-restore</v-icon>
+                        </v-btn>
+                        <v-btn
+                            fab
+                            small
+                            v-if="validable"
+                            color="primary"
+                            @click="$emit('validate',choice)"
+                        >
+                            <v-icon>mdi-check</v-icon>
+                        </v-btn>
+                    </v-col>
+                </v-row>
             </v-col>
         </v-row>
         <template v-if="details">
